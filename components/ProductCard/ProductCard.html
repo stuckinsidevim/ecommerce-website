@@ -1,0 +1,56 @@
+<style>
+  .product {
+    max-width: 300px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    flex-grow: 1;
+    border: 4px solid black;
+    box-shadow: 8px 8px;
+  }
+
+  .product:hover {
+    transform: scale(1.02);
+  }
+
+  .product__image {
+    width: 100%;
+  }
+
+  .product__details {
+    padding: 10px;
+    text-align: left;
+  }
+
+  .product__name {
+    font-size: 1.3em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-block: 0.2em;
+  }
+
+  .product__company {
+    font-size: 0.75rem;
+    margin-block: 0.4em;
+    font-weight: 100;
+  }
+
+  .product__price {
+    margin-top: 1em;
+    margin-bottom: 0.4em;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  .product__price::before {
+    content: "₹ ";
+  }
+</style>
+<article class="product">
+  <img class="product__image" src="" alt="" />
+  <div class="product__details">
+    <h2 class="product__name"></h2>
+    <p class="product__company"></p>
+    <p class="product__price"></p>
+  </div>
+</article>

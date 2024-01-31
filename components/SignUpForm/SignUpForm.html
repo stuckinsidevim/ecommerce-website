@@ -1,0 +1,93 @@
+<style>
+  form {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    width: fit-content;
+  }
+  .sign-up-header {
+    line-height: 1.4em;
+    font-weight: 800;
+    margin-bottom: 10px;
+    font-size: 2rem;
+  }
+  .input {
+    width: 300px;
+    padding: 14px 20px;
+    border: 3px solid black;
+    font-size: 0.93em;
+  }
+
+  .button {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-top: 4px;
+    border: 4px solid black;
+    background: white;
+    padding: 10px 20px;
+    box-shadow: 4px 4px;
+    cursor: pointer;
+    transition: box-shadow 0.1s ease-in-out;
+  }
+
+  .button:hover {
+    box-shadow: 0 0;
+  }
+  .button:disabled {
+    cursor: not-allowed;
+    color: black;
+    box-shadow: none;
+  }
+
+  .agreement a {
+    cursor: pointer;
+  }
+  .agreement a:hover {
+    padding-bottom: 2px;
+    border-bottom: 2px solid black;
+  }
+
+  .agreement {
+    padding-left: 8px;
+    display: flex;
+    align-items: center;
+
+    font-size: 0.7em;
+    gap: 10px;
+    margin-bottom: -10px;
+  }
+  .agreement .agree {
+    cursor: pointer;
+    height: 18px;
+    accent-color: black;
+  }
+</style>
+<form id="signupForm">
+  <h2 class="sign-up-header">Sign Up For Kewl</h2>
+  <input
+    class="input"
+    type="email"
+    id="email"
+    name="email"
+    placeholder="Email"
+    required
+  />
+  <input
+    class="input"
+    type="password"
+    id="password"
+    placeholder="Password"
+    name="password"
+    required
+  />
+  <div class="agreement">
+    <input type="checkbox" class="agree" />
+    <span
+      >I agree to <a><strong>Terms of Conditions</strong></a> and
+      <a><strong>Privacy Policy</strong></a></span
+    >
+  </div>
+  <button class="button" type="submit">Create Account</button>
+</form>

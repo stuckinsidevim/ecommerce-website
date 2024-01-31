@@ -1,0 +1,118 @@
+<style>
+  .product-details {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 10px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .product-details .carousel {
+    margin-right: 40px;
+    width: 50%;
+    max-width: 450px;
+    min-width: 400px;
+    position: relative;
+  }
+  my-carousel {
+    overflow-x: scroll;
+    display: flex;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  my-carousel::-webkit-scrollbar {
+    display: none;
+  }
+  my-carousel > div {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    width: 100%;
+  }
+
+  my-carousel div img {
+    height: 100%;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    padding: 4px 6px;
+    box-shadow: 2px 2px;
+    cursor: pointer;
+  }
+
+  .carousel-prev {
+    left: 10px;
+  }
+  .carousel-next {
+    right: 10px;
+  }
+
+  .about-product {
+    font-size: 0.9em;
+  }
+  .company-name {
+    display: inline-block;
+    font-size: 0.8em;
+    padding-bottom: 5px;
+  }
+
+  .price {
+    display: inline-block;
+    font-weight: 800;
+    padding: 10px 0;
+    padding-right: auto;
+    float: left;
+  }
+  .product-details .button {
+    float: right;
+    font-size: 1em;
+    font-weight: 800;
+    margin-top: 4px;
+    display: inline-block;
+    border: 4px solid black;
+    background: white;
+    padding: 10px 20px;
+    box-shadow: 4px 4px;
+    cursor: pointer;
+    transition: box-shadow 0.1s ease-in-out;
+  }
+
+  .product-details button:hover {
+    box-shadow: 0 0;
+  }
+  .about h2 {
+    margin-top: 20px;
+  }
+
+  .about-product {
+    font-size: 0.4 em;
+    padding-top: 6px;
+    width: 45ch;
+    min-width: 38ch;
+  }
+  .product-details ul {
+    font-size: 14px;
+    margin-left: 18px;
+    margin-top: 10px;
+    margin-bottom: 28px;
+  }
+</style>
+<main>
+  <section class="product-details">
+    <div class="carousel container">
+      <my-carousel role="region" aria-label="Gallery" tabindex="0">
+      </my-carousel>
+      <button class="carousel-btn carousel-prev">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+      <button class="carousel-btn carousel-next">
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </section>
+</main>
