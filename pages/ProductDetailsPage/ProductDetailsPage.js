@@ -58,7 +58,6 @@ export default class ProductDetailsPageComponent extends HTMLElement {
           carousel.index = 0;
           return;
         }
-        console.log("Carousel index :: ", carousel.index);
       },
     );
     document.querySelector(".carousel-prev").addEventListener(
@@ -69,7 +68,6 @@ export default class ProductDetailsPageComponent extends HTMLElement {
           carousel.index = length - 1;
           return;
         }
-        console.log("Carousel index :: ", carousel.index);
       },
     );
   }
