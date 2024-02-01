@@ -9,12 +9,15 @@ export default class ProductListComponent extends HTMLElement {
     super();
     this.innerHTML = productListComponentHTML;
 
+    this.filteredProducts = [];
+
     this.paginationWidget = document.querySelector("pagination-widget");
     this.paginationWidget.setAttribute("page-size", this.pageSize.toString());
     this.paginationWidget.addEventListener(
       "page-selected",
       this.handlePageSelected.bind(this),
     );
+    document.addEventListener("search-initiated", this.handleSearch.bind(this));
   }
 
   connectedCallback() {
@@ -29,14 +32,17 @@ export default class ProductListComponent extends HTMLElement {
           "total-items",
           products.length.toString(),
         );
-        this.displayPage(1); // Display the first page initially
+        this.displayPage(1);
       },
     ).catch((err) => console.error(err));
   }
   displayPage(pageNumber) {
+    const listToDisplay = this.filteredProducts.length > 0
+      ? this.filteredProducts
+      : this.products;
     const startIndex = (pageNumber - 1) * this.pageSize;
     const endIndex = Math.min(startIndex + this.pageSize, this.products.length);
-    const productsToShow = this.products.slice(startIndex, endIndex);
+    const productsToShow = listToDisplay.slice(startIndex, endIndex);
 
     const parent = this.querySelector(".main__product-list");
     parent.innerHTML = ""; // Clear the current products
@@ -51,6 +57,24 @@ export default class ProductListComponent extends HTMLElement {
   handlePageSelected(event) {
     const selectedPage = event.detail.pageNumber;
     this.displayPage(selectedPage);
+  }
+
+  handleSearch(event) {
+    const searchTerm = event.detail.searchTerm.toLowerCase();
+
+    this.filteredProducts = this.products.filter((product) =>
+      product.name.toLowerCase().includes(searchTerm) ||
+      product.company.toLowerCase().includes(searchTerm) ||
+      product.description.details.toLowerCase().includes(searchTerm) ||
+      product.category?.toLowerCase().includes(searchTerm)
+    );
+
+    this.paginationWidget.setAttribute(
+      "total-items",
+      this.filteredProducts.length.toString(),
+    );
+
+    this.displayPage(1);
   }
 }
 

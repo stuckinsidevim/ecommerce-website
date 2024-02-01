@@ -11,8 +11,3 @@ export default class ProductListingPageComponent extends HTMLElement {
     this.innerHTML = productListingPageHTML;
   }
 }
-
-// customElements.define(
-//   ProductListingPageComponent.tagName,
-//   ProductListingPageComponent,
-// );
