@@ -14,6 +14,7 @@ import SignUpPageComponent from "../pages/SignUpPage/SignUpPage";
 import ComponentRegistry from "./component-registry";
 import ProductDetailsCardComponent from "../components/ProductDetailsCard/ProductDetailsCard";
 import PaginationWidget from "../components/PaginationWidget/PaginationWidget";
+import SearchWidget from "../components/SearchWidget/SearchWidget";
 
 Carousel.tagName = "my-carousel";
 const components = [
@@ -26,6 +27,7 @@ const components = [
   ProductDetailsCardComponent,
   Carousel,
   PaginationWidget,
+  SearchWidget,
   // -- pages --
   ProductListingPageComponent,
   SignUpPageComponent,

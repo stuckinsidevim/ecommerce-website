@@ -2,7 +2,7 @@ import productListComponentHTML from "./ProductList.html?raw";
 
 export default class ProductListComponent extends HTMLElement {
   static tagName = "product-list-component";
-  pageSize = 10; // Default page size
+  pageSize = 2; // Default page size
   products = [];
 
   constructor() {
@@ -22,7 +22,7 @@ export default class ProductListComponent extends HTMLElement {
   }
 
   fetchProducts() {
-    fetch("../../data.json").then((response) => response.json()).then(
+    window.services.productService.getProducts().then(
       (products) => {
         this.products = products;
         this.paginationWidget.setAttribute(
@@ -42,7 +42,7 @@ export default class ProductListComponent extends HTMLElement {
     parent.innerHTML = ""; // Clear the current products
     productsToShow.forEach((product) => {
       const childHTML = `<product-card-component image-url="${
-        product.url[0]
+        product.urls[0]
       }" product-name="${product.name}" product-company="${product.company}" product-price="${product.price}" product-id="${product.id}"></product-card-component>`;
       parent.insertAdjacentHTML("beforeend", childHTML);
     });
