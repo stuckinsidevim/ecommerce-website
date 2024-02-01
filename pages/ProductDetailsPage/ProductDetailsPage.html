@@ -51,59 +51,10 @@
   .carousel-next {
     right: 10px;
   }
-
-  .about-product {
-    font-size: 0.9em;
-  }
-  .company-name {
-    display: inline-block;
-    font-size: 0.8em;
-    padding-bottom: 5px;
-  }
-
-  .price {
-    display: inline-block;
-    font-weight: 800;
-    padding: 10px 0;
-    padding-right: auto;
-    float: left;
-  }
-  .product-details .button {
-    float: right;
-    font-size: 1em;
-    font-weight: 800;
-    margin-top: 4px;
-    display: inline-block;
-    border: 4px solid black;
-    background: white;
-    padding: 10px 20px;
-    box-shadow: 4px 4px;
-    cursor: pointer;
-    transition: box-shadow 0.1s ease-in-out;
-  }
-
-  .product-details button:hover {
-    box-shadow: 0 0;
-  }
-  .about h2 {
-    margin-top: 20px;
-  }
-
-  .about-product {
-    font-size: 0.4 em;
-    padding-top: 6px;
-    width: 45ch;
-    min-width: 38ch;
-  }
-  .product-details ul {
-    font-size: 14px;
-    margin-left: 18px;
-    margin-top: 10px;
-    margin-bottom: 28px;
-  }
 </style>
+<header-component></header-component>
 <main>
-  <section class="product-details">
+  <section class="product-details" id="product-details">
     <div class="carousel container">
       <my-carousel role="region" aria-label="Gallery" tabindex="0">
       </my-carousel>
@@ -116,3 +67,4 @@
     </div>
   </section>
 </main>
+<footer-component></footer-component>

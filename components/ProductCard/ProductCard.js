@@ -16,7 +16,7 @@ export default class ProductCardComponent extends HTMLElement {
     const productName = this.getAttribute("product-name") ?? "";
     const productCompany = this.getAttribute("product-company") ?? "";
     // TODO: convert the price 10000 -> 10,000.0
-    const productPrice = this.getAttribute("product-price") ?? "";
+    const productPrice = +(this.getAttribute("product-price") ?? "");
     const productId = this.getAttribute("product-id") ?? "";
 
     this.shadowRoot.querySelector(".product__image").src = imageUrl;
@@ -24,7 +24,8 @@ export default class ProductCardComponent extends HTMLElement {
     this.shadowRoot.querySelector(".product__name").textContent = productName;
     this.shadowRoot.querySelector(".product__company").textContent =
       productCompany;
-    this.shadowRoot.querySelector(".product__price").textContent = productPrice;
+    this.shadowRoot.querySelector(".product__price").textContent = productPrice
+      .toLocaleString("en-US", { minimumFractionDigits: 2 });
 
     this.shadowRoot.addEventListener("click", (e) => {
       console.log(window);
