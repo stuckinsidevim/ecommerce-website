@@ -64,6 +64,7 @@ export default class ProductListComponent extends HTMLElement {
 
     this.filteredProducts = this.products.filter((product) =>
       product.name.toLowerCase().includes(searchTerm) ||
+      product.category.toLowerCase().includes(searchTerm) ||
       product.company.toLowerCase().includes(searchTerm) ||
       product.description.details.toLowerCase().includes(searchTerm) ||
       product.category?.toLowerCase().includes(searchTerm)

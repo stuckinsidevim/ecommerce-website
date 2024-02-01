@@ -15,8 +15,7 @@ export class UserService {
 
   checkIfExists(email) {
     const users = this.getUsers();
-    const user = users.find((user) => user.email === email);
-    return user;
+    return users.some((user) => user.email === email);
   }
 
   login(email, password) {
